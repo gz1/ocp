@@ -121,9 +121,7 @@ public class LottoUtil {
 		return matchCounter;
 	}
 
-	// wie würde eine überprüfung der korrektheit der parameter aussehen?
-	// was müsste alles überprüft werden?
-	// welche exception sollte im fehlerfall geworfen werden?
+	
 	public static int gkl6Aus49(long ziehungsZahlen, long tippZahlen,
 			int superzahl, int losnummer) {
 		boolean hasMatchingSuperzahl = (superzahl == losnummer % 10);
