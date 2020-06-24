@@ -20,10 +20,10 @@ public class LottoUtilTest {
 	private static long tipp2;
 	private static long tipp3;
 	private static long[] tipps;
-	
+
 	// more
 	long ziehungsZahlen = 0b1111110L;
-	
+
 	long tipp6Matches = 0b1111110L;
 	long tipp5Matches = 0b11111100L;
 	long tipp4Matches = 0b111111000L;
@@ -31,10 +31,10 @@ public class LottoUtilTest {
 	long tipp2Matches = 0b11111100000L;
 	long tipp1Matches = 0b111111000000L;
 	long tipp0Matches = 0b1111110000000L;
-	
+
 	// spiel77
 	int zahlSpiel77 = 7654321;
-	
+
 	int spiel77_0_matching_end_digits = 7654320;
 	int spiel77_1_matching_end_digits = 7654301;
 	int spiel77_2_matching_end_digits = 7654021;
@@ -43,7 +43,6 @@ public class LottoUtilTest {
 	int spiel77_5_matching_end_digits = 7054321;
 	int spiel77_6_matching_end_digits = 9654321;
 	int spiel77_7_matching_end_digits = 7654321;
-
 
 	@BeforeEach
 	public void beforeEach() {
@@ -94,9 +93,9 @@ public class LottoUtilTest {
 			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
 		});
 	}
-	
+
 	// more tests
-	
+
 	@Test
 	public void gkl6Aus49_6_Matches_NoMatchingSuperzahl_ShouldGiveGkl2() {
 		int expected = 2;
@@ -104,7 +103,7 @@ public class LottoUtilTest {
 
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gkl6Aus49_5_Matches_NoMatchingSuperzahl_ShouldGiveGkl4() {
 		int expected = 4;
@@ -112,7 +111,7 @@ public class LottoUtilTest {
 
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gkl6Aus49_4_Matches_NoMatchingSuperzahl_ShouldGiveGkl6() {
 		int expected = 6;
@@ -120,79 +119,98 @@ public class LottoUtilTest {
 
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gkl6Aus49_3_Matches_NoMatchingSuperzahl_ShouldGiveGkl8() {
 		int expected = 8;
 		int actual = LottoUtil.gkl6Aus49(ziehungsZahlen, tipp3Matches, false);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gkl6Aus49_0_Matches_NoMatchingSuperzahl_ShouldGiveGkl0() {
 		int expected = 0;
 		int actual = LottoUtil.gkl6Aus49(ziehungsZahlen, tipp0Matches, false);
 		assertEquals(expected, actual);
 	}
-	
+
 	// dito für tipps mit matchender superzahl
-	
+
 	@Test
 	public void gklSpiel77_0_MatchingEndDigits_ShouldGiveGkl0() {
 		int expected = 0;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_0_matching_end_digits);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gklSpiel77_1_MatchingEndDigits_ShouldGiveGkl7() {
 		int expected = 7;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_1_matching_end_digits);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gklSpiel77_2_MatchingEndDigits_ShouldGiveGkl6() {
 		int expected = 6;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_2_matching_end_digits);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gklSpiel77_3_MatchingEndDigits_ShouldGiveGkl5() {
 		int expected = 5;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_3_matching_end_digits);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gklSpiel77_4_MatchingEndDigits_ShouldGiveGkl4() {
 		int expected = 4;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_4_matching_end_digits);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gklSpiel77_5_MatchingEndDigits_ShouldGiveGkl3() {
 		int expected = 3;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_5_matching_end_digits);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gklSpiel77_6_MatchingEndDigits_ShouldGiveGkl2() {
 		int expected = 2;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_6_matching_end_digits);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void gklSpiel77_7_MatchingEndDigits_ShouldGiveGkl1() {
 		int expected = 1;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_7_matching_end_digits);
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	void createTippShouldThrowExceptionWhenDuplicates() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			LottoUtil.createTipp(1, 1);
+		});
+	}
+
+	@Test
+	void createTippShouldThrowExceptionWhenToMutchNumbers() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
+		});
+	}
 	
-	
+	@Test
+	void createTippShouldThrowExceptionWhenIllegalNumbers() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
+		});
+	}
 
 }
