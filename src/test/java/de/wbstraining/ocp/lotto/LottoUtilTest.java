@@ -70,5 +70,7 @@ public class LottoUtilTest {
 			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
 		});
 	}
+	
+	// more tests
 
 }
