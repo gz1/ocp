@@ -214,7 +214,7 @@ public class LottoUtilTest {
 	}
 	
 	@Test
-	void gkl6Aus49ShouldThrowExceptionWhenNegativeArguments() {
+	void gkl6Aus49ShouldThrowExceptionWhenIllegalArguments() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			LottoUtil.gkl6Aus49(-1, tipp1, false);
 		});
