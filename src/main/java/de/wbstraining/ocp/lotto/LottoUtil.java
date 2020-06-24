@@ -1,11 +1,24 @@
 package de.wbstraining.ocp.lotto;
 
+/**
+ * @author gz1
+ * @category utilities
+ * die klasse definiert statische methoden...<br/>
+ * zum erzeugen von tipps <br/>
+ *
+ */
+
 public class LottoUtil {
 
 	// wir schreiben die methode randomTipp().
 	// sie liefert einen long, in dem genau 6 bits an bitpositionen
 	// zwischen 1 und 49 auf 1 gesetzt sind. die einserbits
 	// sollen nach dem zufallsprinzip verteilt sein.
+	
+	/**
+	 * 
+	 * @return ein long-wert mit genau 6 bits an positionen zwischen 1 und 49
+	 */
 
 	public static long randomTipp() {
 		long tippAsBits = 0;
@@ -20,6 +33,13 @@ public class LottoUtil {
 
 	// wir schreiben die methode countMatches(). sie zählt die
 	// anzahl der übereinstimmenden einsers-bits der beiden long-parameter.
+	
+	/** 
+	 * @param tipp1 der erste tipp
+	 * @param tipp2 der zweite tipp
+	 * @return die anzahl der übereinstimmenden einser-bits
+	 * 
+	 */
 	public static int countMatches(long tipp1, long tipp2) {
 		return Long.bitCount(tipp1 & tipp2);
 	}
@@ -37,6 +57,14 @@ public class LottoUtil {
 	// createTipp(1,2,3,4,5,6,7);
 	// createTipp(1,2,3,1);
 
+	/**
+	 * 
+	 * @param zahlen  der tipp
+	 * @return ein long wert mit genau 6 einserbits an positionen zwischen 1 und 49
+	 * @throws IllegalArgumentException
+	 * 
+	 * @author gz1
+	 */
 	public static long createTipp(int... zahlen)
 			throws IllegalArgumentException {
 		if (zahlen.length > 6) {
