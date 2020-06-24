@@ -61,7 +61,7 @@ public class LottoUtil {
 	 * 
 	 * @param zahlen  der tipp
 	 * @return ein long wert mit genau 6 einserbits an positionen zwischen 1 und 49
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException wenn zu viel argumente, duplikate, oder invalide zahlen
 	 * 
 	 * @author gz1
 	 */
