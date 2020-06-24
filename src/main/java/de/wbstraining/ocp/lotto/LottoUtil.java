@@ -2,9 +2,9 @@ package de.wbstraining.ocp.lotto;
 
 /**
  * @author gz1
- * @category utilities
- * die klasse definiert statische methoden...<br/>
- * zum erzeugen von tipps <br/>
+ * 
+ * die klasse definiert statische methoden...<br>
+ * zum erzeugen von tipps <br>
  *
  */
 
