@@ -20,6 +20,18 @@ public class LottoUtilTest {
 	private static long tipp2;
 	private static long tipp3;
 	private static long[] tipps;
+	
+	// more
+	long ziehungsZahlen = 0b1111110L;
+	
+	long tipp6Matches = 0b1111110L;
+	long tipp5Matches = 0b11111100L;
+	long tipp4Matches = 0b111111000L;
+	long tipp3Matches = 0b1111110000L;
+	long tipp2Matches = 0b11111100000L;
+	long tipp1Matches = 0b111111000000L;
+	long tipp0Matches = 0b1111110000000L;
+
 
 	@BeforeEach
 	public void beforeEach() {
@@ -72,5 +84,15 @@ public class LottoUtilTest {
 	}
 	
 	// more tests
+	
+	@Test
+	public void gkl6Aus49_6_Matches_NoMatchingSuperzahl_ShouldGiveGkl2() {
+		int expected = 2;
+		int actual = LottoUtil.gkl6Aus49(ziehungsZahlen, tipp6Matches, false);
+
+		assertEquals(expected, actual);
+	}
+	
+	
 
 }
