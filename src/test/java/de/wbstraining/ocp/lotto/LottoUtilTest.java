@@ -146,49 +146,49 @@ public class LottoUtilTest {
 	
 	@Test
 	public void gklSpiel77_1_MatchingEndDigits_ShouldGiveGkl7() {
-		int expected = 0;
+		int expected = 7;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_1_matching_end_digits);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void gklSpiel77_2_MatchingEndDigits_ShouldGiveGkl6() {
-		int expected = 0;
+		int expected = 6;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_2_matching_end_digits);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void gklSpiel77_3_MatchingEndDigits_ShouldGiveGkl5() {
-		int expected = 0;
+		int expected = 5;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_3_matching_end_digits);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void gklSpiel77_4_MatchingEndDigits_ShouldGiveGkl4() {
-		int expected = 0;
+		int expected = 4;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_4_matching_end_digits);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void gklSpiel77_5_MatchingEndDigits_ShouldGiveGkl3() {
-		int expected = 0;
+		int expected = 3;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_5_matching_end_digits);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void gklSpiel77_6_MatchingEndDigits_ShouldGiveGkl2() {
-		int expected = 0;
+		int expected = 2;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_6_matching_end_digits);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void gklSpiel77_7_MatchingEndDigits_ShouldGiveGkl1() {
-		int expected = 0;
+		int expected = 1;
 		int actual = LottoUtil.gklSpiel77(zahlSpiel77, spiel77_7_matching_end_digits);
 		assertEquals(expected, actual);
 	}
