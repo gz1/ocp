@@ -200,7 +200,7 @@ public class LottoUtilTest {
 	}
 
 	@Test
-	void createTippShouldThrowExceptionWhenToMutchNumbers() {
+	void createTippShouldThrowExceptionWhenTooMutchNumbers() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
 		});
@@ -210,6 +210,13 @@ public class LottoUtilTest {
 	void createTippShouldThrowExceptionWhenIllegalNumbers() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
+		});
+	}
+	
+	@Test
+	void gkl6Aus49ShouldThrowExceptionWhenNegativeArguments() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			LottoUtil.gkl6Aus49(-1, tipp1, false);
 		});
 	}
 
