@@ -108,7 +108,8 @@ public class LottoUtil {
 	// wir schreiben die methode tippAsString(). sie liefert zu einem als long-wert
 	// gegebenen tipp (mit einserbits, die zahlen repräsentieren) eine brauchbare
 	// string-repräsentation
-	public static String tippAsString(long tippAsBits) {
+	public static String tippAsString(long tippAsBits) 
+	{
 		StringBuilder sb = new StringBuilder();
 		for (int n = 1, counter = 0; counter <= 6 && n < 64; n++) {
 			if ((tippAsBits & (1L << n)) != 0) {
