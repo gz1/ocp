@@ -3,6 +3,10 @@ package de.wbstraining.ocp.lotto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Collections;
+import java.util.NavigableSet;
+import java.util.TreeSet;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -11,8 +15,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import de.wbstraining.ocp.lotto.LottoUtil;
 
 public class LottoUtilTest {
 
@@ -205,19 +207,34 @@ public class LottoUtilTest {
 			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
 		});
 	}
-	
+
 	@Test
 	void createTippShouldThrowExceptionWhenIllegalNumbers() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			LottoUtil.createTipp(1, 2, 3, 4, 5, 6, 7);
 		});
 	}
-	
+
 	@Test
 	void gkl6Aus49ShouldThrowExceptionWhenIllegalArguments() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			LottoUtil.gkl6Aus49(-1, tipp1, false);
 		});
+	}
+
+	@Test
+	void tippAsStringShouldDeliverStringWith6NumbersBetween1And49() {
+		long tipp = LottoUtil.createTipp();  // kommentieren
+		boolean expected = true;
+		boolean actual;
+		String tippAsString = LottoUtil.tippAsString(tipp);
+		String[] tokens = tippAsString.split(" ");
+		NavigableSet<Integer> set = new TreeSet<>();
+		for (String token : tokens) {
+			set.add(Integer.parseInt(token));
+		}
+		actual = Collections.min(set) >= 1 && Collections.max(set) <= 49 && set.size() == 6;
+		assertEquals(expected, actual);
 	}
 
 }
