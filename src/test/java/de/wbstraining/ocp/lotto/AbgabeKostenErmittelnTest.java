@@ -1,5 +1,7 @@
 package de.wbstraining.ocp.lotto;
 
+// 
+
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;

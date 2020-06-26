@@ -1,5 +1,7 @@
 package de.wbstraining.ocp.lotto;
 
+// 
+
 public enum Teilnahme {
 	
 	MITTWOCH(1), SAMSTAG(1), MITTWOCH_UND_SAMSTAG(2);
