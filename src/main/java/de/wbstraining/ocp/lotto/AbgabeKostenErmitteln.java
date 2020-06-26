@@ -14,34 +14,29 @@ public class AbgabeKostenErmitteln implements IAbgabeKostenErmitteln {
 		
 		int kosten = 0;
 		
-		int laufzeit = kostenDto.laufzeit;
-		int anzahlTipps = kostenDto.anzahlTipps;
-		boolean isSuper6 = kostenDto.isSuper6;
-		boolean isSpiel77 = kostenDto.isSpiel77;
-		boolean isMittwoch = kostenDto.isMittwoch;
-		boolean isSamstag = kostenDto.isSamstag;
+		Laufzeit laufzeit = kostenDto.getLaufzeit();
+		int anzahlTipps = kostenDto.getAnzahlTipps();
+		boolean isSuper6 = kostenDto.isSuper6();
+		boolean isSpiel77 = kostenDto.isSpiel77();
+		//int einsatzProTipp = kostenDto.
 		
 		int grundGebuehr = gebuehrDto.grundGebuehr;
 		int einsatzProTipp = gebuehrDto.einsatzProTipp;
 		int einsatzspiel77 = gebuehrDto.einsatzSpiel77;
 		int einsatzSuper6 = gebuehrDto.einsatzSuper6;
 		
-		int faktor = 1;
-		
-		if(isMittwoch && isSamstag) {
-			faktor = 2;
-		}
+		int teilnahmeFaktor = kostenDto.getTeilnahme().getFaktor();
 		
 		kosten += grundGebuehr;
 		
-		kosten += einsatzProTipp * laufzeit * anzahlTipps * faktor;
+		kosten += einsatzProTipp * laufzeit.getAnzahl() * anzahlTipps * teilnahmeFaktor;
 		
 		if(isSpiel77) {
-			kosten += laufzeit * einsatzspiel77 * faktor;
+			kosten += laufzeit.getAnzahl() * einsatzspiel77 * teilnahmeFaktor;
 		}
 		
 		if(isSuper6) {
-			kosten += laufzeit * einsatzSuper6 * faktor;
+			kosten += laufzeit.getAnzahl() * einsatzSuper6 * teilnahmeFaktor;
 		}
 		
 		return kosten;

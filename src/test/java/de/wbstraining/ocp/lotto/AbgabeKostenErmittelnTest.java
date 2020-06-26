@@ -11,53 +11,49 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 public class AbgabeKostenErmittelnTest {
-	
+
 	private IAbgabeKostenErmitteln kostenErmitteln;
 	private IGebuehrService gebuehrService;
-	
+
 	private GebuehrDto gebuehrDto;
 	private KostenErmittelnDto kostenDto;
-	
+
 	private final int GRUNDGEBUEHR = 60;
 	private final int EINSATZ_PRO_TIPP = 100;
 	private final int EINSATZ_SPIEL_77 = 250;
 	private final int EINSATZ_SUPER_6 = 125;
-	
-	private final int LAUFZEIT = 1;
+
+	private final Laufzeit LAUFZEIT = Laufzeit.EINE_WOCHE;
 	private final int ANZAHL_TIPPS = 1;
 	private boolean IS_SUPER_6 = false;
 	private boolean IS_SPIEL_77 = false;
-	private boolean IS_MITTWOCH = true;
-	private boolean IS_SAMSTAG = true;
-	
+	private Teilnahme teilnahme = Teilnahme.MITTWOCH;
+
 	private final LocalDate DATE = LocalDate.now();
-	
+
 	@BeforeEach
 	public void setupMock() {
 		kostenErmitteln = new AbgabeKostenErmitteln();
 		gebuehrService = mock(IGebuehrService.class);
-		gebuehrDto = new GebuehrDto(GRUNDGEBUEHR, EINSATZ_PRO_TIPP,
-				EINSATZ_SPIEL_77, EINSATZ_SUPER_6);
-		kostenDto = new KostenErmittelnDto(LAUFZEIT, ANZAHL_TIPPS,
-				IS_SUPER_6, IS_SPIEL_77, IS_MITTWOCH, IS_SAMSTAG);
+		gebuehrDto = new GebuehrDto(GRUNDGEBUEHR, EINSATZ_PRO_TIPP, EINSATZ_SPIEL_77, EINSATZ_SUPER_6);
+		kostenDto = new KostenErmittelnDto(LAUFZEIT, ANZAHL_TIPPS, IS_SUPER_6, IS_SPIEL_77, teilnahme);
 		kostenErmitteln.setGebuehrService(gebuehrService);
-		
+
 		when(gebuehrService.gebuehrFuerDatum(DATE)).thenReturn(gebuehrDto);
 	}
-	
+
 	@Test
 	public void kostenErmittelnTest() {
 		int expectedKosten = 160;
 		int result = kostenErmitteln.abgabeKosten(kostenDto);
 		assertTrue(expectedKosten == result);
 	}
-	
+
 	@Test
 	public void serviceCallTest() {
 		kostenErmitteln.abgabeKosten(kostenDto);
 		verify(gebuehrService, atLeastOnce()).gebuehrFuerDatum(DATE);
-		
+
 	}
 }
