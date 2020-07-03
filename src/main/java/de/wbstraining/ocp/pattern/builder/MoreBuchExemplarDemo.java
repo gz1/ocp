@@ -12,7 +12,7 @@ public class MoreBuchExemplarDemo {
 		// wir zählen, wie viele bücher mit verschiedener isbn
 		// in buchexemplare.txt enthalten sind.
 		
-		String booksPath = "resources/io/buchexemplare.txt";
+		String booksPath = "src/main/resources/io/buchexemplare.txt";
 
 		List<BuchExemplar> exemplare = BuchExemplarUtil.exemplareFromFile(booksPath, "\t+");
 		

@@ -1,7 +1,11 @@
 package de.wbstraining.ocp.pattern.builder;
 
-public class BuchExemplar {
+import java.io.Serializable;
+
+public class BuchExemplar implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	public static class Builder {
 		
 		private int nr;
