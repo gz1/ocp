@@ -16,3 +16,4 @@ local.properties
 .classpath
 .projects
 .project
+src/main/resources
