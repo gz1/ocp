@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class CopyDemo {
+public class CopyDemo  {
 
 	public static void main(String[] args) {
 		String src = "src/main/resources/io/buchexemplare.txt";
