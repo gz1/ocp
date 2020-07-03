@@ -1,9 +1,12 @@
 package de.wbstraining.ocp.nim;
 
+import java.io.Serializable;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Nim {
+public class Nim implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	protected int[] rows;
 	protected int xorOverAllRows;
 	protected int notEmptyRows;
