@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -36,22 +37,36 @@ public class NimTest {
 
 	@Test
 	public void isWinnableShouldReturnTrueIfWinnable() {
-		fail("not yet implemented...");
+		Nim nim = new Nim(new int[] { 1, 2, 3, 4, 5 });
+		boolean expected = true;
+		boolean actual = nim.isWinnable();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void isWinnableShouldReturnFalseIfNotWinnable() {
-		fail("not yet implemented...");
+		Nim nim = new Nim(new int[] { 1, 2, 3, 4, 4 });
+		boolean expected = false;
+		boolean actual = nim.isWinnable();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void isLegalMoveShouldReturnTrueIfMoveIsLegal() {
-		fail("not yet implemented...");
+		Nim nim = new Nim(new int[] { 1, 2, 3, 4, 5 });
+		NimMove move = new NimMove(0, 0);
+		boolean expected = true;
+		boolean actual = nim.isLegalMove(move);
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void isLegalMoveShouldReturnFalseIfMoveIsNotLegal() {
-		fail("not yet implemented...");
+		Nim nim = new Nim(new int[] { 1, 2, 3, 4, 5 });
+		NimMove move = new NimMove(0, 1);
+		boolean expected = false;
+		boolean actual = nim.isLegalMove(move);
+		assertEquals(expected, actual);
 	}
 
 	@Test

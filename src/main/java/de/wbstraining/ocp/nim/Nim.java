@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Nim implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	protected int[] rows;
 	protected int xorOverAllRows;
 	protected int notEmptyRows;
@@ -45,7 +45,11 @@ public class Nim implements Serializable {
 	}
 
 	public boolean isLegalMove(NimMove move) {
-		return false;
+		int index = move.getIndex();
+		int remainingTokens = move.getRemainingTokens();
+		return (index >= 0 && index < rows.length
+				&& remainingTokens >= 0 &&
+				remainingTokens < rows[index]);
 	}
 
 	public boolean isOver() {
@@ -61,7 +65,10 @@ public class Nim implements Serializable {
 	}
 
 	public Nim makeMove(NimMove move) throws NimException {
-		// ...
+		// prüfe, ob der zug legal ist
+		// aktualisiere rows[]
+		// aktualisiere ggf. notEmptyRows
+		// aktualisiere xorOverAllRows
 		return this;
 	}
 
