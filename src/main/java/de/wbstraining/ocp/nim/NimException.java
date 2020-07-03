@@ -2,6 +2,8 @@ package de.wbstraining.ocp.nim;
 
 public class NimException extends RuntimeException {
 
+	private static final long serialVersionUID = 1L;
+
 	public NimException() {
 		// TODO Auto-generated constructor stub
 	}
