@@ -69,6 +69,18 @@ public class Nim implements Serializable {
 		// aktualisiere rows[]
 		// aktualisiere ggf. notEmptyRows
 		// aktualisiere xorOverAllRows
+		if (!isLegalMove(move)) {
+			throw new NimException("not a legal move...");
+		}
+		
+		int index = move.getIndex();
+		int remainingTokens = move.getRemainingTokens();
+		if (remainingTokens == 0) {
+			notEmptyRows--;
+		}
+		xorOverAllRows ^= rows[index];
+		xorOverAllRows ^= remainingTokens;
+		rows[index] = remainingTokens;
 		return this;
 	}
 
