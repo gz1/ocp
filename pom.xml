@@ -42,6 +42,8 @@
 						<artifactId>junit-jupiter-engine</artifactId>
 						<version>5.1.0</version>
 					</dependency>
+
+
 				</dependencies>
 			</plugin>
 
@@ -112,6 +114,12 @@
 			<artifactId>cucumber-junit</artifactId>
 			<version>1.2.6</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.20</version>
 		</dependency>
 
 
