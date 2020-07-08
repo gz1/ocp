@@ -1,4 +1,4 @@
-package wbs.jdbc.annotation;
+package de.wbstraining.ocp.jdbc.annotation;
 
 import java.io.Serializable;
 
